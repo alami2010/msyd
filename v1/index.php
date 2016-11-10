@@ -2,11 +2,23 @@
 
 //including the required files
 require_once '../include/DbOperation.php';
+require_once '../include/service/PersonneService.php';
+require_once '../include/DbConnect.php';
+
+
+
 require '.././libs/Slim/Slim.php';
+
 
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim();
+
+
+// including controllers
+require_once '../include/controller/LoginController.php';
+
+
 
 /* *
  * URL: http://localhost/StudentApp/v1/createstudent
@@ -28,7 +40,7 @@ $app->post('/createstudent', function () use ($app) {
     } else if ($res == 1) {
         $response["error"] = true;
         $response["message"] = "Oops! An error occurred while registereing";
-        echoResponse(200, $response);
+        echoResp²onse(200, $response);
     } else if ($res == 2) {
         $response["error"] = true;
         $response["message"] = "Sorry, this student  already existed";
@@ -58,6 +70,8 @@ $app->post('/studentlogin', function () use ($app) {
         $response['error'] = true;
         $response['message'] = "Invalid username or password";
     }
+
+    echo "eee\n ";
     echoResponse(200, $response);
 });
 

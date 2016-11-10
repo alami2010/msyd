@@ -4,6 +4,11 @@ class DbOperation
 {
     private $con;
 
+    function __call($name, $arguments)
+    {
+        // TODO: Implement __call() method.
+    }
+
     function __construct()
     {
         require_once dirname(__FILE__) . '/DbConnect.php';
