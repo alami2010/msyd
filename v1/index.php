@@ -40,7 +40,7 @@ $app->post('/createstudent', function () use ($app) {
     } else if ($res == 1) {
         $response["error"] = true;
         $response["message"] = "Oops! An error occurred while registereing";
-        echoResp²onse(200, $response);
+        echoResponse(200, $response);
     } else if ($res == 2) {
         $response["error"] = true;
         $response["message"] = "Sorry, this student  already existed";
