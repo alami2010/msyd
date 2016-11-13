@@ -3,21 +3,20 @@
 //including the required files
 require_once '../include/DbOperation.php';
 require_once '../include/service/PersonneService.php';
+require_once '../include/service/TokenService.php';
 require_once '../include/DbConnect.php';
-
-
-
+require_once '../include/utils/jwt_helper.php';
 require '.././libs/Slim/Slim.php';
-
+require_once '../include/controller/LoginController.php';
 
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim();
 
 
-// including controllers
-require_once '../include/controller/LoginController.php';
-
+$app->post('/login', 'loginPersonne');
+$app->get('/user/:id', 'authenticatePersonne', 'getPersonne');
+$app->post('/user/', 'createUser');
 
 
 /* *
@@ -53,8 +52,12 @@ $app->post('/createstudent', function () use ($app) {
  * Parameters: username, password
  * Method: POST
  * */
-$app->post('/studentlogin', function () use ($app) {
+$app->post('/studentlogin','studentlogin' );
+
+
+function studentlogin ()  {
     verifyRequiredParams(array('username', 'password'));
+    $app = \Slim\Slim::getInstance();
     $username = $app->request->post('username');
     $password = $app->request->post('password');
     $db = new DbOperation();
@@ -73,7 +76,7 @@ $app->post('/studentlogin', function () use ($app) {
 
     echo "eee\n ";
     echoResponse(200, $response);
-});
+}
 
 /* *
  * URL: http://localhost/StudentApp/v1/createfaculty
@@ -127,6 +130,7 @@ $app->post('/facultylogin', function() use ($app){
         $response['error'] = false;
         $response['id'] = $faculty['id'];
         $response['name'] = $faculty['name'];
+
         $response['username'] = $faculty['username'];
         $response['subject'] = $faculty['subject'];
         $response['apikey'] = $faculty['api_key'];
@@ -277,7 +281,7 @@ function verifyRequiredParams($required_fields)
 }
 
 function authenticateStudent(\Slim\Route $route)
-{
+{/*
     $headers = apache_request_headers();
     $response = array();
     $app = \Slim\Slim::getInstance();
@@ -296,8 +300,35 @@ function authenticateStudent(\Slim\Route $route)
         $response["message"] = "Api key is misssing";
         echoResponse(400, $response);
         $app->stop();
+    }*/
+}
+
+
+function authenticatePersonne(\Slim\Route $route)
+{
+    $headers = apache_request_headers();
+    $response = array();
+    $app = \Slim\Slim::getInstance();
+
+    if (isset($headers['Authorization'])) {
+        $ts = new TokenService();
+        $api_key = $headers['Authorization'];
+        echo $api_key;
+        if (!$ts->isValidToken($api_key)) {
+            $response["error"] = true;
+            $response["message"] = "Invalid_Api_key";
+            echoResponse(401, $response);
+            $app->stop();
+        }
+    } else {
+        $response["error"] = true;
+        $response["message"] = "Api_key_is_misssing";
+        echoResponse(400, $response);
+        $app->stop();
     }
 }
+
+
 
 
 function authenticateFaculty(\Slim\Route $route)

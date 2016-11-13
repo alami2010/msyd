@@ -18,8 +18,21 @@ class DbConnect
         //Including the constants.php file to get the database constants
         include_once dirname(__FILE__) . '/Constants.php';
 
-        //connecting to mysql database
-        $this->con = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+        try {
+
+
+            $dbhost     = DB_HOST;
+            $dbname     = DB_NAME;
+            $dbusername = DB_USERNAME;
+            $dbpassword = DB_PASSWORD;
+
+            $this->con = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbusername,$dbpassword);
+        } catch (PDOException $e) {
+            echo "Failed to get DB handle: " . $e->getMessage() . "\n";
+            exit;
+        }
+
+
 
         //Checking if any error occured while connecting
         if (mysqli_connect_errno()) {

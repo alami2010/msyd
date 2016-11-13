@@ -176,8 +176,8 @@ class DbOperation
 
     //Checking the student is valid or not by api key
     public function isValidStudent($api_key) {
-        $stmt = $this->con->prepare("SELECT id from students WHERE api_key = ?");
-        $stmt->bind_param("s", $api_key);
+        $stmt = $this->con->prepare("SELECT id from personne WHERE api_key = api");
+        $stmt->bindParam(":api", $api_key);
         $stmt->execute();
         $stmt->store_result();
         $num_rows = $stmt->num_rows;
