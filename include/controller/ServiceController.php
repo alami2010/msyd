@@ -22,6 +22,7 @@ function getService($user_id) {
 }
 
 
+//todo
 function createService() {
     verifyRequiredParams(array('nom','prenom','email','sexe', 'password'));
     $personneService = new PersonneService();
