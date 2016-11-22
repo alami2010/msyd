@@ -118,7 +118,7 @@
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header">
-      <span class="close">×</span>
+      <span class="close">Ã—</span>
       <h2>Choose your language</h2>
     </div>
     <div class="modal-body">
@@ -144,22 +144,16 @@
 
 
 function useLangue(cname) {
-
-		console.info("lanue used is : "+cname );
+	console.info("lanue used is : "+cname );
         $("p").text(cname);
-
-
     return "";
 }
 
 // Get the modal
 var modal = document.getElementById('myModal');
 
-var span = document.getElementsByClassName("close")[0];
-
 // Get the <span> element that closes the modal
 // When the user clicks on <span> (x), close the modal
-
 $(".close").click(function(){
 	  modal.style.display = "none";
 });
@@ -189,11 +183,8 @@ modal.style.display = "block";
 
 $(".langue").click(function(){
 		var newLang = $(this).attr("id");
-		console.info(newLang );
-        localStorage.setItem("langue",newLang);
-		console.info(localStorage.getItem("langue") );
+                localStorage.setItem("langue",newLang);
 		useLangue(newLang);
-		
 		modal.style.display = "none";
 });
 
