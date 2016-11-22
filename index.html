@@ -144,8 +144,10 @@
 
 
 function useLangue(cname) {
-	console.info("lanue used is : "+cname );
+
+    	console.info("lanue used is : "+cname );
         $("p").text(cname);
+		
     return "";
 }
 
@@ -154,6 +156,7 @@ var modal = document.getElementById('myModal');
 
 // Get the <span> element that closes the modal
 // When the user clicks on <span> (x), close the modal
+
 $(".close").click(function(){
 	  modal.style.display = "none";
 });
@@ -168,7 +171,7 @@ window.onclick = function(event) {
 
 
 $(document).ready(function(){
-var oldLang = localStorage.getItem("langue") ;
+var oldLang = sessionStorage.getItem("langue") ;
 	 
 if(oldLang){
 useLangue(oldLang);
@@ -183,7 +186,9 @@ modal.style.display = "block";
 
 $(".langue").click(function(){
 		var newLang = $(this).attr("id");
-                localStorage.setItem("langue",newLang);
+		console.info(newLang );
+        sessionStorage.setItem("langue",newLang);
+		console.info(sessionStorage.getItem("langue") );
 		useLangue(newLang);
 		modal.style.display = "none";
 });
