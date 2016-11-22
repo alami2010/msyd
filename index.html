@@ -145,6 +145,8 @@
 
 function useLangue(cname) {
 
+		// TODO
+
     	console.info("lanue used is : "+cname );
         $("p").text(cname);
 		
@@ -171,39 +173,30 @@ window.onclick = function(event) {
 
 
 $(document).ready(function(){
-var oldLang = sessionStorage.getItem("langue") ;
-	 
-if(oldLang){
-useLangue(oldLang);
-}else{
-modal.style.display = "block";
-// open modal
-}	  
-	  
 
+var oldLang = (typeof(Storage) !== "undefined") ? sessionStorage.getItem("langue") : null ;
+	 
+	if(oldLang){
+		useLangue(oldLang);
+	}else{// open modal
+		modal.style.display = "block";
+	}	  
+	  
 });
 
 
 $(".langue").click(function(){
 		var newLang = $(this).attr("id");
-		console.info(newLang );
-        sessionStorage.setItem("langue",newLang);
-		console.info(sessionStorage.getItem("langue") );
+		
+		if (typeof(Storage) !== "undefined") {
+			sessionStorage.setItem("langue",newLang);
+		}
+
 		useLangue(newLang);
 		modal.style.display = "none";
 });
 
 
-
-if (typeof(Storage) !== "undefined") {
-    // Code for localStorage/sessionStorage.
-} else {
-    // Sorry! No Web Storage support..
-}
-
-
-
-///document.cookie = "username=John Doe";
 
 </script>
 
