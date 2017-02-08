@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!DOCTYPE ShippingRecord SYSTEM "ShippingRecord.dtd">
+<ShippingRecord Client="AFI">
+<clx-framework>
+<DomainCode>AFI</DomainCode>
+<ControlNumber>
+<MCN>PROD.001630941.20161227084701</MCN>
+<MCNSource>B</MCNSource>
+<SCN>1630941.1</SCN>
+</ControlNumber>
+<CelarixMessageID/>
+<ClientCode>AFI</ClientCode>
+</clx-framework>
+<edi-keys>
+<MsgProvider>AIRFRANCE</MsgProvider>
+<MsgReceiver>AIRFRAIOUT</MsgReceiver>
+<MsgICID>6L08824</MsgICID>
+<MsgDate>
+<Date>20161227</Date>
+<Time>08:47:05</Time>
+<TimeZone>UT</TimeZone>
+</MsgDate>
+<DataProvider>AIRFRANCE</DataProvider>
+<DataReceiver>AIRFRAIOUT</DataReceiver>
+<EDITran>SHPMT</EDITran>
+</edi-keys>
+<shipping-record-hdr Action="C">
+<BillOfLading>4144578410</BillOfLading>
+<Provider>
+<ProviderCode>AFI</ProviderCode>
+</Provider>
+<Voyage>ZONE 1</Voyage>
+<Vessel>ZONE 1</Vessel>
+<ShipMode>
+<ShipModeCode>1</ShipModeCode>
+</ShipMode>
+<ShipmentSubelemValue1>DHL EXPRESS</ShipmentSubelemValue1>
+<ShipmentSubelemValue2>EXPORT</ShipmentSubelemValue2>
+<ShipmentSubelemValue3>DE</ShipmentSubelemValue3>
+<ShipmentSubelemValue5>Reference</ShipmentSubelemValue5>
+<ShipmentSubelemValue9>OT</ShipmentSubelemValue9>
+</shipping-record-hdr>
+<shipping-record-dtl Action="X">
+<ShipID>4144578410</ShipID>
+<DepartDate>
+<Date>20161227</Date>
+<Time>08:47</Time>
+<TimeZone>UT</TimeZone>
+</DepartDate>
+<PortOfLading>
+<PortOfLadingCode>CDGM153</PortOfLadingCode>
+</PortOfLading>
+<DestinationLocation>
+<DestinationLocationCode>CDGM153</DestinationLocationCode>
+</DestinationLocation>
+<ProofOfDelivery>
+<ConfirmationNum>Ready for Pick Up</ConfirmationNum>
+<ReceiveDate>
+<Date>20161227</Date>
+<Time>08:47</Time>
+<TimeZone>UT</TimeZone>
+</ReceiveDate>
+</ProofOfDelivery>
+<PipelineActivity>
+<PipelineActivityCode>370</PipelineActivityCode>
+</PipelineActivity>
+<PipelineActivityDate>
+<Date>20161227</Date>
+<Time>08:47</Time>
+<TimeZone>UT</TimeZone>
+</PipelineActivityDate>
+<dtl-notes>
+<NoteDetail>
+<NoteUser>AFI</NoteUser>
+<NoteText>370 - Ready for Pick Up - 27/12/2016 - 08:47 - UT - CDGM153</NoteText>
+</NoteDetail>
+</dtl-notes>
+<orders-per-shipid Action="X">
+<OrderID>6L08824</OrderID>
+<LetterOfCreditNum>6881283</LetterOfCreditNum>
+<PurchasingGroup>6L08824</PurchasingGroup>
+<items-per-order-per-shipid Action="X">
+<ItemID>H321BHM1</ItemID>
+<ItemSubgroup>
+<ItemSubgroupCode>1</ItemSubgroupCode>
+<ItemSubgroupValue>SN 15235</ItemSubgroupValue>
+</ItemSubgroup>
+<ItemQtyShipped1>1</ItemQtyShipped1>
+<ItemQtyUM1>EA</ItemQtyUM1>
+</items-per-order-per-shipid>
+</orders-per-shipid>
+</shipping-record-dtl>
+</ShippingRecord>
+<?xml version="1.0"?>
+<!DOCTYPE OrderRecord SYSTEM "OrderRecord.dtd">
+<OrderRecord Client="AFI">
+<clx-framework>
+<DomainCode>AFI</DomainCode>
+<ControlNumber>
+<MCN>PROD.001630941.20161227084701</MCN>
+<MCNSource>B</MCNSource>
+<SCN>1630941.2</SCN>
+</ControlNumber>
+<CelarixMessageID/>
+<ClientCode>AFI</ClientCode>
+</clx-framework>
+<edi-keys>
+<MsgProvider>AIRFRANCE</MsgProvider>
+<MsgReceiver>AIRFRAIOUT</MsgReceiver>
+<MsgICID>6L08824</MsgICID>
+<MsgDate>
+<Date>20161227</Date>
+<Time>08:47:05</Time>
+<TimeZone>UT</TimeZone>
+</MsgDate>
+<DataProvider>AIRFRANCE</DataProvider>
+<DataReceiver>AIRFRAIOUT</DataReceiver>
+<EDITran>SHPMT</EDITran>
+</edi-keys>
+<order-record-hdr Action="C">
+<OrderID>6L08824</OrderID>
+<CreateDate>
+<ERPCreateDate>
+<Date>20161227</Date>
+</ERPCreateDate>
+</CreateDate>
+<OrderStatus>
+<OrderStatusDesc>Reference</OrderStatusDesc>
+</OrderStatus>
+<PurchasingGroup>6L08824</PurchasingGroup>
+<DestinationLocation>
+<DestinationLocationCode>CDGM153</DestinationLocationCode>
+</DestinationLocation>
+<PortOfLading>
+<PortOfLadingCode>CDGM153</PortOfLadingCode>
+</PortOfLading>
+<PlannedShipMode>
+<PlannedShipModeCode>U</PlannedShipModeCode>
+</PlannedShipMode>
+<CommodityDesc>6881283</CommodityDesc>
+<OrderSubelemValue1>EXPORT</OrderSubelemValue1>
+<OrderSubelemValue2>DE</OrderSubelemValue2>
+<OrderSubelemValue10>OT</OrderSubelemValue10>
+</order-record-hdr>
+<order-record-dtl Action="X">
+<ItemID>H321BHM1</ItemID>
+<ItemSubgroup>
+<ItemSubgroupCode>1</ItemSubgroupCode>
+<ItemSubgroupValue>SN 15235</ItemSubgroupValue>
+</ItemSubgroup>
+<OrderedQty1>1</OrderedQty1>
+<OrderedUM1>EA</OrderedUM1>
+</order-record-dtl>
+</OrderRecord>
